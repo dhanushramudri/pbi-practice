@@ -1,0 +1,38 @@
+table dim_category
+	lineageTag: 8b35f6ba-2115-41f0-96cf-1235edf3c836
+
+	column category_id
+		dataType: string
+		lineageTag: 2a821f20-3a84-4bb5-a27e-75dddcc329d8
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_name
+		dataType: string
+		lineageTag: 27504717-8bb1-4d2c-a7da-cfaf3747ae74
+		summarizeBy: none
+		sourceColumn: category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 9ebd2dc2-4b47-419a-9a47-bcf167116583
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_category = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("JM-DKT-017", "master"),
+				    dbo_dim_category = Source{[Schema="dbo",Item="dim_category"]}[Data]
+				in
+				    dbo_dim_category
+
+	annotation PBI_ResultType = Table
+

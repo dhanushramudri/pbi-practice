@@ -1,0 +1,38 @@
+expression Merge1 =
+		let
+		    Source = Table.NestedJoin(Orders, {"Region"}, People, {"Region"}, "People", JoinKind.Inner)
+		in
+		    Source
+	lineageTag: f2139ed4-2d3c-47c2-b280-d594ccbda577
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Orders =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\DhanushbabuRamudri\Downloads\global_superstore_2016.xlsx"), null, true),
+		    Orders_Sheet = Source{[Item="Orders",Kind="Sheet"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(Orders_Sheet, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Row ID", Int64.Type}, {"Order ID", type text}, {"Order Date", type date}, {"Ship Date", type date}, {"Ship Mode", type text}, {"Customer ID", type text}, {"Customer Name", type text}, {"Segment", type text}, {"Postal Code", Int64.Type}, {"City", type text}, {"State", type text}, {"Country", type text}, {"Region", type text}, {"Market", type text}, {"Product ID", type text}, {"Category", type text}, {"Sub-Category", type text}, {"Product Name", type text}, {"Sales", type number}, {"Quantity", Int64.Type}, {"Discount", type number}, {"Profit", type number}, {"Shipping Cost", type number}, {"Order Priority", type text}})
+		in
+		    #"Changed Type"
+	lineageTag: 29386d91-49be-49d7-84ce-a4aab0d05a9f
+
+	annotation PBI_ResultType = Table
+
+expression People =
+		let
+		    Source = Excel.Workbook(File.Contents("C:\Users\DhanushbabuRamudri\Downloads\global_superstore_2016.xlsx"), null, true),
+		    People_Sheet = Source{[Item="People",Kind="Sheet"]}[Data],
+		    #"Changed Type" = Table.TransformColumnTypes(People_Sheet,{{"Column1", type text}, {"Column2", type text}}),
+		    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Person", type text}, {"Region", type text}})
+		in
+		    #"Changed Type1"
+	lineageTag: 7a6d73b4-a640-474e-bc83-1993bb613a59
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

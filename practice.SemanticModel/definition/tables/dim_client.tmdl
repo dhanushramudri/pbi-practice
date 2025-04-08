@@ -1,0 +1,54 @@
+table dim_client
+	lineageTag: fd518642-2e06-43fe-8017-73dae4c61717
+
+	column client_id
+		dataType: string
+		lineageTag: 7b9f3fa0-5bf5-4307-a44f-edd6212bf96b
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_name
+		dataType: string
+		lineageTag: e6ff655c-d3ae-48d5-a654-2ac61bec7f76
+		summarizeBy: none
+		sourceColumn: client_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_type
+		dataType: string
+		lineageTag: 217e313e-1bdf-41e1-a417-471fc9b87512
+		summarizeBy: none
+		sourceColumn: client_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: c492b873-d015-4b63-929f-e75d161f9306
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_active
+		dataType: string
+		lineageTag: 6969e5dd-eeca-4979-8401-b05f3f8343b5
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_client = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("JM-DKT-017", "master"),
+				    dbo_dim_client = Source{[Schema="dbo",Item="dim_client"]}[Data]
+				in
+				    dbo_dim_client
+
+	annotation PBI_ResultType = Table
+

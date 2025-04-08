@@ -1,0 +1,26 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["People","Orders","Merge1","dim_client","dim_category","dim_equipment","dim_region","fact_asset_revenue"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.141.1253.0 (25.03)+74f9999a1e95f78c739f3ea2b96ba340e9ba8729
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_2cf61524-975c-4bff-b519-29053026c5d5
+ref table dim_client
+ref table dim_category
+ref table dim_equipment
+ref table dim_region
+ref table fact_asset_revenue
+ref table LocalDateTable_a331b93f-c4ac-463f-ae2b-3278b7f5b10a
+
+ref cultureInfo en-US
+

@@ -1,0 +1,12 @@
+Calendar =
+VAR Days = CALENDAR(DATE(2021,1,1), TODAY())
+Return ADDCOLUMNS(
+    Days,
+"Year", FORMAT([Date], "yyyy"),
+"YearMM",FORMAT([Date], "YYYYMM"),
+"MonthNo",MONTH([Date]),
+"Month", FORMAT([Date],"MMM"),
+"YearMonth", FORMAT([Date], "MMM YYYY"),
+"yearmonth2", FORMAT([Date], "MMM-YY"),
+"YYYY MM", FORMAT([Date], "YYYY MM"),
+"Day", FORMAT([Date],"DD"))

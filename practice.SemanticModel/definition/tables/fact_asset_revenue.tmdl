@@ -1,0 +1,96 @@
+table fact_asset_revenue
+	lineageTag: e0872ba6-ce00-42a1-b890-b160af077428
+
+	column asset_number
+		dataType: string
+		lineageTag: 3247096a-a3a0-43a3-96c6-d2693f5a5a41
+		summarizeBy: none
+		sourceColumn: asset_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_id
+		dataType: string
+		lineageTag: 08f89b15-96e8-4ac8-b8e6-8e2aec02709d
+		summarizeBy: none
+		sourceColumn: client_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column equipment_type_id
+		dataType: string
+		lineageTag: 05556057-fdf8-4211-b994-9cabb29af82c
+		summarizeBy: none
+		sourceColumn: equipment_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: string
+		lineageTag: eca000b0-d081-40d8-b46c-d70e7ba110ce
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column description_id
+		dataType: string
+		lineageTag: c2b0bb25-73d2-45f6-999f-e051990771bc
+		summarizeBy: none
+		sourceColumn: description_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ca933f35-84e0-41c7-9b30-fa5ea56f1b46
+		summarizeBy: none
+		sourceColumn: order_date
+
+		variation Variation
+			isDefault
+			relationship: 61770984-dd76-4380-a107-88c8a61f4fcc
+			defaultHierarchy: LocalDateTable_a331b93f-c4ac-463f-ae2b-3278b7f5b10a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column daily_revenue
+		dataType: double
+		lineageTag: 581eabac-0ba1-4c98-81c2-0b756ce5b5ce
+		summarizeBy: sum
+		sourceColumn: daily_revenue
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_active
+		dataType: string
+		lineageTag: a943835f-d89c-4608-ae55-85f3034f580f
+		summarizeBy: none
+		sourceColumn: is_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_id
+		dataType: string
+		lineageTag: 89567661-914e-4f10-8eb6-0cfaef522a2d
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_asset_revenue = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("JM-DKT-017", "master"),
+				    dbo_fact_asset_revenue = Source{[Schema="dbo",Item="fact_asset_revenue"]}[Data]
+				in
+				    dbo_fact_asset_revenue
+
+	annotation PBI_ResultType = Table
+

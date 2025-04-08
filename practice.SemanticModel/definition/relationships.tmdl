@@ -1,0 +1,21 @@
+relationship 61770984-dd76-4380-a107-88c8a61f4fcc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: fact_asset_revenue.order_date
+	toColumn: LocalDateTable_a331b93f-c4ac-463f-ae2b-3278b7f5b10a.Date
+
+relationship AutoDetected_5e52d2e1-32e4-4419-93d6-625e0f4cf49c
+	fromColumn: fact_asset_revenue.client_id
+	toColumn: dim_client.client_id
+
+relationship AutoDetected_3421b8df-257d-4805-8535-05ac6064731c
+	fromColumn: fact_asset_revenue.category_id
+	toColumn: dim_category.category_id
+
+relationship AutoDetected_9b79ea52-4fc5-4d6b-a2ca-df380d7e5d2a
+	fromColumn: fact_asset_revenue.equipment_type_id
+	toColumn: dim_equipment.equipment_type_id
+
+relationship AutoDetected_b04d63c2-edd5-4338-8e1d-da30b0967e24
+	fromColumn: fact_asset_revenue.region_id
+	toColumn: dim_region.region_id
+

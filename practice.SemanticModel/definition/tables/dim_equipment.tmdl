@@ -1,0 +1,46 @@
+table dim_equipment
+	lineageTag: f54e95b0-5915-4ca6-9b44-acddbbbfb2fb
+
+	column equipment_type_id
+		dataType: string
+		lineageTag: 0d256c99-90b3-4983-b41c-338bc7b53d09
+		summarizeBy: none
+		sourceColumn: equipment_type_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column equipment_type
+		dataType: string
+		lineageTag: db9cc85a-07d6-443d-a9d0-c90ca9e2cce0
+		summarizeBy: none
+		sourceColumn: equipment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 99edc09c-072e-449b-ab11-256f49a68de1
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column category_id
+		dataType: string
+		lineageTag: 72724953-eed1-48ef-8167-b32902dda3fc
+		summarizeBy: none
+		sourceColumn: category_id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_equipment = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("JM-DKT-017", "master"),
+				    dbo_dim_equipment = Source{[Schema="dbo",Item="dim_equipment"]}[Data]
+				in
+				    dbo_dim_equipment
+
+	annotation PBI_ResultType = Table
+

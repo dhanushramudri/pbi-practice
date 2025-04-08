@@ -1,0 +1,38 @@
+table dim_region
+	lineageTag: 3e3cb7b8-4c4e-456d-92d3-506066925d68
+
+	column region_id
+		dataType: string
+		lineageTag: c22f555f-3b3e-4c5c-ad40-38108e2644d3
+		summarizeBy: none
+		sourceColumn: region_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column region_name
+		dataType: string
+		lineageTag: 73d34665-f1d3-4569-9036-00af87588af7
+		summarizeBy: none
+		sourceColumn: region_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column country
+		dataType: string
+		lineageTag: 3479f606-0391-4a6a-835c-8984b409d790
+		summarizeBy: none
+		sourceColumn: country
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_region = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("JM-DKT-017", "master"),
+				    dbo_dim_region = Source{[Schema="dbo",Item="dim_region"]}[Data]
+				in
+				    dbo_dim_region
+
+	annotation PBI_ResultType = Table
+
