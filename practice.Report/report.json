@@ -27,12 +27,12 @@
       "name": "d975eab0e5ec2e0bd4de",
       "visualContainers": [
         {
-          "config": "{\"name\":\"3447234838e12dbc328e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":442.5531914893617,\"y\":151.73252279635258,\"z\":0,\"width\":474.65045592705167,\"height\":287.90273556231006,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(fact_asset_revenue.daily_revenue)\"}],\"Category\":[{\"queryRef\":\"fact_asset_revenue.client_id\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_asset_revenue\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"daily_revenue\"}},\"Function\":0},\"Name\":\"Sum(fact_asset_revenue.daily_revenue)\",\"NativeReferenceName\":\"Sum of daily_revenue\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"client_id\"},\"Name\":\"fact_asset_revenue.client_id\",\"NativeReferenceName\":\"client_id\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"daily_revenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"3447234838e12dbc328e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":415.3191489361702,\"y\":145.89665653495442,\"z\":0,\"width\":474.65045592705167,\"height\":287.90273556231006,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(fact_asset_revenue.daily_revenue)\"}],\"Category\":[{\"queryRef\":\"fact_asset_revenue.client_id\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fact_asset_revenue\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"daily_revenue\"}},\"Function\":0},\"Name\":\"Sum(fact_asset_revenue.daily_revenue)\",\"NativeReferenceName\":\"Sum of daily_revenue\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"client_id\"},\"Name\":\"fact_asset_revenue.client_id\",\"NativeReferenceName\":\"client_id\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"daily_revenue\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}],\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0.6}}}}}}}]}}}",
           "filters": "[]",
           "height": 287.90,
           "width": 474.65,
-          "x": 442.55,
-          "y": 151.73,
+          "x": 415.32,
+          "y": 145.90,
           "z": 0.00
         }
       ],
